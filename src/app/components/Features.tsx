@@ -25,164 +25,97 @@ const Features = () => {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set(overlayRef.current, { y: "100%", zIndex: 10, opacity: 0 });
-      gsap.set(overlay2Ref.current, { y: "100%", zIndex: 10, opacity: 0 });
-      gsap.set(overlay3Ref.current, { y: "100%", zIndex: 10, opacity: 0 });
+      gsap.set([
+        overlayRef.current,
+        overlay2Ref.current,
+        overlay3Ref.current,
+      ], {
+        y: "100%",
+        opacity: 0,
+        zIndex: 10,
+      });
+  
       gsap.set(image2Ref.current, { opacity: 0 });
-
+      gsap.set(image3Ref.current, { opacity: 0 });
+  
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
           end: "+=2000",
-          scrub: true,
+          scrub: 0.3,
           pin: true,
-          markers: true,
         },
       });
-
-      // Main animations
-      tl.to(
-        imageContainerRef.current,
-        {
-          xPercent: -100,
-          duration: 2,
-          ease: "power2.out",
-        },
-        0
-      )
-        .to(
-          textRef.current,
-          {
-            y: 40,
-            opacity: 0.4,
-            duration: 2,
-            ease: "power2.out",
-          },
-          0
-        )
-        // Cross-fade images at 50% progress
-        .to(
-          image1Ref.current,
-          {
-            opacity: 0,
-            duration: 0.5,
-          },
-          0.5
-        ) // Starts at 1 second (halfway through)
-        .to(
-          image2Ref.current,
-          {
-            opacity: 1,
-            duration: 0.5,
-          },
-          0.5
-        )
-        .to(
-          overlayRef.current,
-          {
-            y: "0%",
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out",
-          },
-          0
-        );
-
-      // Phase 2: Overlay slides left to cover image (2000-3000px)
-      tl.set(
-        overlayRef.current,
-        { zIndex: 30 }, // or whatever value you need
-        ">"
-      );
-      tl.to(
-        overlayRef.current,
-        {
-          xPercent: -100,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        ">"
-      );
-
-
-      // Phase 2: overlay1 moves left, overlay2 slides up
-      tl.to(
-        overlay2Ref.current,
-        { y: "0%", opacity: 1, duration: 2, ease: "power2.out" },
-        "<"
-      ); // Starts at the same time as overlay1 moves left
-
-      tl.to(
-        overlayTextOriginalRef.current,
-        {
-          opacity: 0,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        ">" // or wherever you want it to start
-      );
-      
-      tl.to(
-        overlayTextNewRef.current,
-        {
-          opacity: 1,
-          duration: 0.5,
-          ease: "power2.inOut",
-        },
-        "<" // same time as above to crossfade
-      );
-
-       // Phase 3: Overlay slides left to cover image (2000-3000px)
-       tl.set(
-        overlay2Ref.current,
-        { zIndex: 30 }, // or whatever value you need
-        ">"
-      );
-      tl.to(
-        overlay2Ref.current,
-        {
-          xPercent: -100,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        ">"
-      );
-
-      tl.to(
-        image2Ref.current,
-        {
-          opacity: 0,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        "<" // same time as overlay2 starts sliding left
-      );
-      
-      tl.to(
-        image3Ref.current,
-        {
-          opacity: 1,
-          duration: 1,
-          ease: "power2.inOut",
-        },
-        "<" // same time as the fade out
-      );
-      
-
-      tl.to(
-        overlay3Ref.current,
-        { y: "0%", opacity: 1, duration: 2, ease: "power2.out" },
-        "<"
-      ); // Starts at the same time as overlay1 moves left
-
-      
+  
+      tl.to(imageContainerRef.current, {
+        x: "-100%",
+        duration: 2,
+        ease: "power2.out",
+      }, 0)
+      .to(textRef.current, {
+        y: 40,
+        opacity: 0.4,
+        duration: 2,
+        ease: "power2.out",
+      }, 0)
+      .to(image1Ref.current, { opacity: 0, duration: 0.5 }, 0.5)
+      .to(image2Ref.current, { opacity: 1, duration: 0.5 }, 0.5)
+      .to(overlayRef.current, {
+        y: "0%",
+        opacity: 1,
+        duration: 1.5,
+        ease: "power2.out",
+      }, 0.6)
+      .set(overlayRef.current, { zIndex: 30 })
+      .to(overlayRef.current, {
+        x: "-100%",
+        duration: 1,
+        ease: "power2.inOut",
+      }, ">")
+      .to(overlay2Ref.current, {
+        y: "0%",
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out",
+      }, "<")
+      .to(overlayTextOriginalRef.current, {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.inOut",
+      }, ">")
+      .to(overlayTextNewRef.current, {
+        opacity: 1,
+        duration: 0.5,
+        ease: "power2.inOut",
+      }, "<")
+      .set(overlay2Ref.current, { zIndex: 30 })
+      .to(overlay2Ref.current, {
+        x: "-100%",
+        duration: 1,
+        ease: "power2.inOut",
+      }, ">")
+      .to(image2Ref.current, {
+        opacity: 0,
+        duration: 1,
+        ease: "power2.inOut",
+      }, "<")
+      .to(image3Ref.current, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      }, "<")
+      .to(overlay3Ref.current, {
+        y: "0%",
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out",
+      }, "<");
     }, containerRef);
-
-    
-
+  
     return () => ctx.revert();
   }, []);
+  
 
   return (
     <section
@@ -205,7 +138,7 @@ const Features = () => {
           {/* Image container that will slide */}
           <div
             ref={imageContainerRef}
-            className="col-span-1 row-span-1 rounded-[56px] overflow-hidden z-20 relative"
+            className="col-span-1 row-span-1 rounded-[56px] overflow-hidden z-20 relative will-change-transform"
           >
             {/* First image */}
             <div ref={image1Ref} className="absolute inset-0">
