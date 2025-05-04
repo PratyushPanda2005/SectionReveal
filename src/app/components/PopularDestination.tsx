@@ -28,7 +28,7 @@ const PopularDestination = () => {
     })
 
   return (
-    <div id='about' className='min-h-screen w-screen'>
+    <div id='about' className='min-h-screen w-screen overflow-hidden'>
         <div className='relative mb-8 mt-36 flex flex-col items-center gap-5'>
             <h2 className='text-sm uppercase md:text-[10px]'>Welcome to CSM Aviation</h2>
             <div className='mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[6rem]'>
