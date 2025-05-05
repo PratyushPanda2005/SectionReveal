@@ -30,12 +30,12 @@ const PopularDestination = () => {
   return (
     <div id='about' className='min-h-screen w-screen overflow-hidden'>
         <div className='relative mb-8 mt-36 flex flex-col items-center gap-5'>
-            <h2 className='text-sm uppercase md:text-[10px]'>Welcome to CSM Aviation</h2>
+            
             <div className='mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[6rem]'>
                   <b>Popular Destinations</b>
             </div>
             <div className='absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-circular-web text-lg md:max-w-[34rem]'>
-        <p>Beyond First Class. Beyond Expectation. Safely There.</p>
+        <p>Beyond First Class.</p>
         <p>Discover seamless and luxurious private jet charters to your global destinations, knowing your journey with CSM Aviation is underpinned by the highest safety standards.</p>
             </div>
         </div>
