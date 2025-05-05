@@ -25,7 +25,22 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#about{
-  background-color: #002448;
-  background: radial-gradient(circle at top center, #005fbf 0%, #003f73 40%, #001d36 100%);
+#about {
+  background: radial-gradient(
+    circle at top center,
+    #66ccff 0%,  
+    #003f73 15%,  /* Medium dark blue */
+    #000f1b 40%   /* Very dark blue */
+  );
 }
+@media (min-width: 768px) {
+#about {
+  background: radial-gradient(
+    circle at top center,
+    #66ccff 0%,   /* Light blue */
+    #003f73 20%,  /* Medium dark blue */
+    #000f1b 40%   /* Very dark blue */
+  );
+}
+}
+
