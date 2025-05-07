@@ -29,18 +29,30 @@ body {
   background: radial-gradient(
     circle at top center,
     #66ccff 0%,  
-    #003f73 15%,  /* Medium dark blue */
-    #000f1b 40%   /* Very dark blue */
+    #003f73 15%,  
+    #000f1b 40%  
   );
 }
 @media (min-width: 768px) {
 #about {
   background: radial-gradient(
     circle at top center,
-    #66ccff 0%,   /* Light blue */
-    #003f73 20%,  /* Medium dark blue */
-    #000f1b 40%   /* Very dark blue */
+    #66ccff 0%,   
+    #003f73 20%, 
+    #000f1b 40%  
   );
 }
 }
 
+.video-background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+#container {
+  height: 300vh;
+}
