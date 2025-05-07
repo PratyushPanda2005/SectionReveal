@@ -83,7 +83,9 @@ export default function Home() {
         className="video-background"
       ></video>
 
-      <div id="container" style={{ height: "500vh" }}></div>
+      <div id="container" style={{ height: "500vh" }}>
+      <h1 className="fixed text-5xl font-bold w-full flex justify-center text-center uppercase">Popular Destinations</h1>
+      </div>
     </main>
   );
 }
